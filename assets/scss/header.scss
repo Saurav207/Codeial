@@ -1,0 +1,24 @@
+#conatiner{
+    display: flex;
+    background-color: #2252ffe0;
+    h2{
+        margin: 10px;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+        margin: 5px;
+    }
+
+    #InOut{
+        display: flex;
+        list-style: none;
+        
+        
+        position:absolute;
+        top:12;
+        right:0;
+        
+        
+    }
+}

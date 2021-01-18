@@ -1,0 +1,27 @@
+#container{
+    width: auto;
+    height: 100px;
+    background-color: gray;
+
+    #container-content{
+        display: flex;
+        color: white;
+    
+    .copyright-content:hover{
+        background-color: black;
+
+    }
+    #link-bittons{
+        list-style: none;
+        &:hover{
+            color: black;
+        }
+    li a{
+        text-decoration: none;
+        color: white;
+    }    
+    }
+}
+    
+
+}
