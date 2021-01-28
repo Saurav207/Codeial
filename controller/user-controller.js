@@ -3,22 +3,35 @@ const User = require('../models/user');
 
 
 module.exports.profile = function(req, res) {
-    if(req.cookies.user_id) {
-        User.findById(req.cookies.user_id, function(err, user) {
-            if(user) {
+    // if(req.cookies.user_id) {
+        User.findById(req.params.id, function(err, user) {
+           
                 return res.render('user_profile', {
                     title: "hey",
-                    user : user
+                    profile_user : user
                 });
                 
-            }
-            return res.redirect('/user/Signin');
+            });
+        }        
+    //         return res.redirect('/user/Signin');
+    //     });
+    // } else {
+    //     return res.redirect('/user/Signin');
+    // }
+    
+    
+module.exports.update = function(req, res) {
+    if(req.user.id == req.params.id) {
+        User.findByIdAndUpdate(req.params.id, req.body, function(err, user) {
+            return res.redirect('back');
         });
     } else {
-        return res.redirect('/user/Signin');
+        return res.status(401).send('Unauthorized');
     }
-    
-    }
+}
+
+
+
 
 //Render SignUp page 
 module.exports.SignUp = function(req, res) {
