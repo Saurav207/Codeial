@@ -6,7 +6,7 @@ module.exports.create = async function(req, res) {
 
         //if post is found theen create the comment
            if(post) {
-               Comment.create({
+               let comment = await Comment.create({
                    content: req.body.content,
                    post: req.body.post,
                    user: req.user._id
