@@ -15,6 +15,8 @@ module.exports.create = async function(req, res) {
        
                post.comments.push(comment);
                post.save();
+               req.flash('success', "Add comment");
+            //    req.flash('error', "Default Error");
        
                 res.redirect('/');
            
@@ -33,9 +35,11 @@ module.exports.destroy = async function(req, res) {
         if(comment.user == req.user.id) {
             let postId = comment.post;
             comment.remove();
+            req.flash('success', "Comment got deleted");
 
             let post = await Post.findByIdAndUpdate(postId, { $pull : {comments: req.params.id}});
                 return res.redirect('back');
+                 
             
         }
         else {
