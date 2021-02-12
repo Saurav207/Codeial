@@ -29,7 +29,7 @@ module.exports.destroy = async function(req, res) {
     try{
         let post = await Post.findById(req.params.id);
         //.id means converting the object id into string 
-        //and here check the user who is deleteing the post is user who creating the post
+        //and here check the user who is deleteing the post is user who  creating the post
         if(post.user == req.user.id) {
             post.remove();
 
