@@ -43,6 +43,12 @@
              <small>
              ${post.user.name}
              </small>
+
+        <small>
+             <a class="toggle-like-button" data-likes = "0" href = "/likes/toggle/?id=${post._id} &type = Post">
+                 0 Likes
+             </a>
+        </small>     
          </p>
          
         <div class="post-comments">
@@ -85,6 +91,22 @@
 
 
 
+// loop over all the existing posts on the page (when the window loads for the first time) and call the delete post method on delete link of each, also add AJAX (using the class we've created) to the delete button of each
+let convertPostsToAjax = function(){
+    $('#posts-list-container>ul>li').each(function(){
+        let self = $(this);
+        let deleteButton = $(' .delete-post-button', self);
+        deletePost(deleteButton);
 
-    createPost();
+        // get the post's id by splitting the id attribute
+        let postId = self.prop('id').split("-")[1]
+        new PostComments(postId);
+    });
+}
+
+
+
+createPost();
+convertPostsToAjax();
+    
 }

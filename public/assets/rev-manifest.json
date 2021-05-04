@@ -1,0 +1,21 @@
+{
+  "css/chat_box.css": "css/chat_box-a7993626d8.css",
+  "css/footer.css": "css/footer-0c3cbffea5.css",
+  "css/header.css": "css/header-a9ab4473e0.css",
+  "css/home.css": "css/home-e57d54f7f8.css",
+  "css/layout.css": "css/layout-9e314e6436.css",
+  "css/user_profile.css": "css/user_profile-f5f65c3380.css",
+  "js/_post.js": "js/_post-7a9e1463ea.js",
+  "js/chat_engine.js": "js/chat_engine-3dd185d624.js",
+  "js/home_delete.js": "js/home_delete-d41d8cd98f.js",
+  "js/home_post.js": "js/home_post-61c6caf57e.js",
+  "js/home_post_comment.js": "js/home_post_comment-bb6531bb93.js",
+  "js/layout.js": "js/layout-d41d8cd98f.js",
+  "js/togglelike.js": "js/togglelike-6888e2eea1.js",
+  "scss/chat_box.css": "scss/chat_box-360994fde2.css",
+  "scss/footer.css": "scss/footer-94a2d55826.css",
+  "scss/header.css": "scss/header-00f04672bf.css",
+  "scss/home.css": "scss/home-55c6ed1008.css",
+  "scss/layout.css": "scss/layout-6ec2aee53b.css",
+  "scss/user_profile.css": "scss/user_profile-6b54139745.css"
+}

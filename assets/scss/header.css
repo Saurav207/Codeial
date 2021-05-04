@@ -1,0 +1,27 @@
+#conatiner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #2252ffe0;
+}
+
+#conatiner h2 {
+  margin: 10px;
+}
+
+#conatiner a {
+  text-decoration: none;
+  color: white;
+  margin: 5px;
+}
+
+#conatiner #InOut {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  position: absolute;
+  top: 12;
+  right: 0;
+}
+/*# sourceMappingURL=header.css.map */

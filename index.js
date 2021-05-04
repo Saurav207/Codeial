@@ -1,4 +1,6 @@
 const express = require('express');
+var logger = require('morgan')
+const env = require('./config/enviornment');
 const cookieParser = require('cookie-parser');
 const app = express();
 const port = 9000;
@@ -22,18 +24,34 @@ const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 
+const path = require('path');
 
+//setup the chat server to be used with socket.io
+const chatServer = require('http').Server(app);
+const chatSockets = require('./config/chat_socket').chatSockets(chatServer);
+chatServer.listen(7000);
+console.log("chat server is listening on port 5000");
+
+// const kue = require('kue');
+
+if(eval.name == 'development') {
 app.use(sassMiddleware({
-    src: './assets/scss',
-    dest: './assets/css',
+    src: path.join(__dirname, env.asset_path, '/scss'),
+    dest: path.join(__dirname, env.asset_path, 'css'),
     debug: true,
     outputStyle: 'expanded',
     prefix: '/css'
 }))
+}
 
-app.use(express.static('./assets'));
+app.use(express.static(env.asset_path));
 //make the uploads path available to the browser
 app.use('/uploads', express.static(__dirname + '/uploads'));
+
+
+app.use(logger(env.morgan.mode, env.morgan.options));
+
+
 app.use(expressLayouts);
 app.use(express.urlencoded());
 app.use(cookieParser());
@@ -51,7 +69,7 @@ app.set('views', './views');
 //mongo store is uesd to store the session cookie in the db
 app.use(session({
     name: 'codeial',
-    secret: 'bhahsomething',
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {
@@ -73,6 +91,7 @@ app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 app.use(flash());
 app.use(customMware.setFlash);
+
 
 app.use('/', require('./routes'));  //middleware
 

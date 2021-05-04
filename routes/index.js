@@ -13,6 +13,7 @@ router.use('/comment', require('./comment'));
 
 
 router.use('/api', require('./api'));
+router.use('/likes', require('./likes'));
 
 
 module.exports = router;
