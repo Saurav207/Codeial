@@ -63,7 +63,9 @@ gulp.task('images', function(done){
 });
 
 
-//empty thhe public assets directory
+//empty the public assets directory
+//whenever you are building the project  you need to clear previous build
+//and  build it from scratch
 gulp.task('clean:assets', function(done) {
     del.sync('./public/assets');
     done();

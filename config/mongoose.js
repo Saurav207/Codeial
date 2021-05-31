@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const env = require('./enviornment');
-mongoose.connect(`mongodb://localhost/${env.db}`);
+mongoose.connect(`mongodb://localhost/${env.db}`);  //why localhost --> because it is running on same system  and in db name whatever you want name it
 
 const db = mongoose.connection;
 

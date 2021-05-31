@@ -3,6 +3,7 @@ class ToggleLike{
     constructor(toggleElement){
         this.toggler = toggleElement;
         this.toggleLike();
+
     }
 
 
@@ -10,6 +11,7 @@ class ToggleLike{
         $(this.toggler).click(function(e){
             e.preventDefault();
             let self = this;
+            //console.log('hello');
 
             // this is a new way of writing ajax which you might've studied, it looks like the same as promises
             $.ajax({

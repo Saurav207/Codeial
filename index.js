@@ -3,6 +3,7 @@ var logger = require('morgan')
 const env = require('./config/enviornment');
 const cookieParser = require('cookie-parser');
 const app = express();
+require('./config/viewHelper')(app);
 const port = 9000;
 
 const db = require('./config/mongoose');
@@ -69,6 +70,8 @@ app.set('views', './views');
 //mongo store is uesd to store the session cookie in the db
 app.use(session({
     name: 'codeial',
+    //TODO chnages the secret before deployment in production mode
+    
     secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
